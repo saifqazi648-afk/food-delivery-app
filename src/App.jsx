@@ -1,11 +1,34 @@
+import React, { useState } from 'react';
+
+const tabs = ['Customer App', 'Delivery App', 'Restaurant App', 'Admin Panel'];
+
 const customerRestaurants = [
-  { name: 'Urban Spice', type: 'Indian • 25 min', rating: 4.8, fee: '₹25', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80' },
-  { name: 'Green Basket', type: 'Groceries • 18 min', rating: 4.7, fee: '₹15', image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80' },
-  { name: 'Pizza Pearl', type: 'Pizza • 22 min', rating: 4.9, fee: '₹35', image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=80' }
+  {
+    name: 'Urban Spice',
+    type: 'Indian • 25 min',
+    rating: 4.8,
+    fee: '₹25',
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80'
+  },
+  {
+    name: 'Green Basket',
+    type: 'Groceries • 18 min',
+    rating: 4.7,
+    fee: '₹15',
+    image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80'
+  },
+  {
+    name: 'Pizza Pearl',
+    type: 'Pizza • 22 min',
+    rating: 4.9,
+    fee: '₹35',
+    image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=80'
+  }
 ];
 
-const customerCategories = ['Biryani', 'Pizza', 'Healthy', 'Grocery', 'Desserts', 'Fast Food'];
-const customerOrderSummary = [
+const categories = ['Biryani', 'Pizza', 'Healthy', 'Grocery', 'Desserts', 'Fast Food'];
+
+const orderSummary = [
   { name: 'Butter Chicken Combo', qty: 1, price: '₹329' },
   { name: 'Coke', qty: 2, price: '₹120' },
   { name: 'Veg Wrap', qty: 1, price: '₹179' }
@@ -51,8 +74,7 @@ const activityList = [
 ];
 
 function App() {
-  const tabs = ['Customer App', 'Delivery App', 'Restaurant App', 'Admin Panel'];
-  const [activeTab, setActiveTab] = React.useState('Customer App');
+  const [activeTab, setActiveTab] = useState('Customer App');
 
   return (
     <div className="ro45-app">
@@ -66,6 +88,7 @@ function App() {
               <span className="signal-dot" />
             </div>
           </div>
+
           <div className="brand-wrap">
             <div className="brand-mark">R</div>
             <div className="brand-copy">
@@ -73,6 +96,7 @@ function App() {
               <small>BiteRaho</small>
             </div>
           </div>
+
           <div className="top-actions">
             <span className="pill-count">5</span>
           </div>
@@ -127,7 +151,7 @@ function CustomerView() {
         </div>
 
         <div className="chip-row">
-          {customerCategories.map((item) => (
+          {categories.map((item) => (
             <span key={item} className="chip">{item}</span>
           ))}
         </div>
@@ -140,7 +164,7 @@ function CustomerView() {
         </div>
 
         <div className="cart-list">
-          {customerOrderSummary.map((item) => (
+          {orderSummary.map((item) => (
             <div key={item.name} className="cart-item">
               <div>
                 <strong>{item.name}</strong>
